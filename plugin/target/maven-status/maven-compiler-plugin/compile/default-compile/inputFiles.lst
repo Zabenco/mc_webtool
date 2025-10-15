@@ -3,6 +3,7 @@ C:\Coding Stuff\mc_webtool\plugin\src\main\java\com\ezabenco\mcwebtool\commands\
 C:\Coding Stuff\mc_webtool\plugin\src\main\java\com\ezabenco\mcwebtool\websocket\DashboardWebSocketClient.java
 C:\Coding Stuff\mc_webtool\plugin\src\main\java\com\ezabenco\mcwebtool\commands\KillCommand.java
 C:\Coding Stuff\mc_webtool\plugin\src\main\java\com\ezabenco\mcwebtool\commands\PlayerStatsCommand.java
+C:\Coding Stuff\mc_webtool\plugin\src\main\java\com\ezabenco\mcwebtool\commands\UpdateCooldownCommand.java
 C:\Coding Stuff\mc_webtool\plugin\src\main\java\com\ezabenco\mcwebtool\listeners\BuffListener.java
 C:\Coding Stuff\mc_webtool\plugin\src\main\java\com\ezabenco\mcwebtool\commands\TeleportCommand.java
 C:\Coding Stuff\mc_webtool\plugin\src\main\java\com\ezabenco\mcwebtool\listeners\PlayerEventListener.java

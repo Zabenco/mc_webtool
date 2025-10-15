@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minecraft Web Dashboard</title>
+</head>
+<body>
+  <h1>Minecraft Live Player Data</h1>
+  <pre id="output"></pre>
+
+  <script>
+    const ws = new WebSocket('ws://localhost:8080');
+
+    ws.onopen = () => {
+      document.getElementById('output').textContent = 'Connected to backend...\n';
+    };
+
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      // Clear previous data and insert new data for live update effect
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2) + '\n';
+    };
+
+    ws.onclose = () => {
+      document.getElementById('output').textContent += 'WebSocket closed.\n';
+    };
+
+    ws.onerror = (err) => {
+      document.getElementById('output').textContent += 'Error: ' + err + '\n';
+    };
+  </script>
+</body>
+</html>

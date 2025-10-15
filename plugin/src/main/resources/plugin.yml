@@ -13,4 +13,6 @@ commands:
     description: Apply a buff or debuff to a player
   playerstats:
     description: Show a player's stats and inventory
+  updatecooldown:
+    description: Set the player update throttle in milliseconds
 

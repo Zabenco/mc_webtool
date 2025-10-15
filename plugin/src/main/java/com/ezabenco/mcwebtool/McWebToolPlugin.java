@@ -3,11 +3,13 @@ package com.ezabenco.mcwebtool;
 import com.ezabenco.mcwebtool.listeners.PlayerEventListener;
 import com.ezabenco.mcwebtool.commands.StrikeCommand;
 import com.ezabenco.mcwebtool.commands.TeleportCommand;
+import com.ezabenco.mcwebtool.commands.UpdateCooldownCommand;
 import com.ezabenco.mcwebtool.commands.KillCommand;
 import com.ezabenco.mcwebtool.commands.PlayerStatsCommand;
 import com.ezabenco.mcwebtool.commands.BuffCommand;
 import com.ezabenco.mcwebtool.websocket.DashboardWebSocketClient;
 import org.bukkit.plugin.java.JavaPlugin;
+
 
 public class McWebToolPlugin extends JavaPlugin {
 
@@ -33,6 +35,7 @@ public class McWebToolPlugin extends JavaPlugin {
         this.getCommand("kill").setExecutor(new KillCommand());
         this.getCommand("buff").setExecutor(new BuffCommand());
         this.getCommand("playerstats").setExecutor(new PlayerStatsCommand());
+        this.getCommand("updatecooldown").setExecutor(new UpdateCooldownCommand());
     }
 
     @Override
