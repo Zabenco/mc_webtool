@@ -1,0 +1,11 @@
+com\ezabenco\mcwebtool\utils\PlayerUtils.class
+com\ezabenco\mcwebtool\commands\KillCommand.class
+com\ezabenco\mcwebtool\listeners\PlayerEventListener.class
+com\ezabenco\mcwebtool\commands\TeleportCommand.class
+com\ezabenco\mcwebtool\commands\PlayerStatsCommand.class
+com\ezabenco\mcwebtool\commands\StrikeCommand.class
+com\ezabenco\mcwebtool\websocket\DashboardWebSocketClient.class
+com\ezabenco\mcwebtool\listeners\BuffListener.class
+com\ezabenco\mcwebtool\listeners\PlayerEventListener$PlayerData.class
+com\ezabenco\mcwebtool\commands\BuffCommand.class
+com\ezabenco\mcwebtool\McWebToolPlugin.class
