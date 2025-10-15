@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-const PLAYER_HEAD_URL = 'https://minecraft-heads.com/images/heads/steve.png';
+const PLAYER_HEAD_URL = 'https://i.redd.it/which-steve-head-give-you-the-most-nostalgia-v0-kdtxir23hr4d1.jpg?width=225&format=pjpg&auto=webp&s=6931f61e616175651568e49857f091494466e08d';
 const INIT_SCALE = 4;
 const MIN_SCALE = 1;
 const MAX_SCALE = 24;
@@ -13,7 +13,7 @@ function App() {
   const [selected, setSelected] = useState(null);
 
   const [scale, setScale] = useState(INIT_SCALE);
-  const [offset, setOffset] = useState({x: 0, y: 0}); // in blocks
+  const [offset, setOffset] = useState({x: 0, y: 0});
   const [drag, setDrag] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [centeredOnSpawn, setCenteredOnSpawn] = useState(false);
@@ -27,7 +27,7 @@ function App() {
           ...old,
           [data.name]: data,
         }));
-        // If spawn location is sent, set it and center the view
+
         if (data.spawn && !centeredOnSpawn) {
           setSpawn({ x: data.spawn.x, z: data.spawn.z });
           setOffset({ x: data.spawn.x, y: data.spawn.z });
@@ -38,7 +38,7 @@ function App() {
     return () => { ws.current && ws.current.close(); };
   }, [centeredOnSpawn]);
 
-  // Mouse drag pan
+
   const handleMouseDown = (e) => {
     setDrag({x: e.clientX, y: e.clientY, orig: {...offset}});
     setIsDragging(false);
@@ -53,12 +53,12 @@ function App() {
     const dy = (e.clientY - drag.y) / scale;
     if (Math.abs(dx) > MIN_DRAG_DIST || Math.abs(dy) > MIN_DRAG_DIST) setIsDragging(true);
     setOffset({
-      x: drag.orig.x - dx,  // inverted panning
-      y: drag.orig.y - dy   // inverted panning
+      x: drag.orig.x - dx,  
+      y: drag.orig.y - dy   
     });
   };
 
-  // Zoom in/out via buttons
+
   const zoom = (factor) => {
     setScale(prev => {
       const newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, prev * factor));
@@ -66,7 +66,7 @@ function App() {
     });
   };
 
-  // SVG canvas props
+
   const width = 800, height = 600;
   const centerX = width/2, centerY = height/2;
 
@@ -81,7 +81,7 @@ function App() {
         letterSpacing: "2px",
         boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
       }}>
-        Minecraft Live Map
+        Minecraft Web Tool
       </header>
       <div style={{flex: 1, position: "relative"}}>
         <svg

@@ -5,39 +5,55 @@ import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.logging.Logger;
 
 public class DashboardWebSocketClient extends WebSocketClient {
-
     public DashboardWebSocketClient(String serverUri) throws URISyntaxException {
+        this(serverUri, Logger.getLogger(DashboardWebSocketClient.class.getName()));
+    }
+
+    private final Logger logger;
+
+    // Accept a logger so you use plugin logging
+    public DashboardWebSocketClient(String serverUri, Logger logger) throws URISyntaxException {
         super(new URI(serverUri));
+        this.logger = logger;
     }
 
     @Override
     public void onOpen(ServerHandshake handshakedata) {
-        System.out.println("WebSocket Connected to dashboard.");
+    logger.info("WebSocket Connected to dashboard.");
     }
 
     @Override
     public void onMessage(String message) {
-        System.out.println("Message from server: " + message);
+    logger.info("Message from server: " + message);
     }
 
     @Override
     public void onClose(int code, String reason, boolean remote) {
-        System.out.println("WebSocket Closed: " + reason);
+    logger.info("WebSocket Closed: " + reason);
     }
 
     @Override
     public void onError(Exception ex) {
-        System.err.println("WebSocket Error:");
-        ex.printStackTrace();
+    logger.severe("WebSocket Error: " + ex.getMessage());
     }
 
     public void sendPlayerData(String jsonData) {
         if (this.isOpen()) {
             this.send(jsonData);
         } else {
-            System.err.println("WebSocket is not open. Cannot send player data.");
+            logger.severe("WebSocket is not open. Cannot send player data.");
+        }
+    }
+
+    // New method for sending chunk data
+    public void sendChunkData(String jsonChunk) {
+        if (this.isOpen()) {
+            this.send(jsonChunk);
+        } else {
+            logger.severe("WebSocket is not open. Cannot send chunk data.");
         }
     }
 }
